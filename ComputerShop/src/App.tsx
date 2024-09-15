@@ -6,7 +6,7 @@ const App = () => {
       {/* main div */}
       <div>
         {/* nav bar div */}
-        <div className="flex flex-col  md:flex-row  md:justify-end p-2 rounded border-2 h-20">
+        <div>
           <NavBar />
         </div>
       </div>
