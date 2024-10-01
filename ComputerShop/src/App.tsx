@@ -1,3 +1,4 @@
+import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 
 const App = () => {
@@ -8,6 +9,9 @@ const App = () => {
         {/* nav bar div */}
         <div>
           <NavBar />
+        </div>
+        <div>
+          <Home />
         </div>
       </div>
     </>
