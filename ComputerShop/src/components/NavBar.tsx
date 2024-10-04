@@ -32,7 +32,10 @@ const NavBar = () => {
             Products
           </Link>
 
-          <Link to="" className="text-lg font-bold hover:text-purple-500">
+          <Link
+            to="/Aboutus"
+            className="text-lg font-bold hover:text-purple-500"
+          >
             AboutUs
           </Link>
 
