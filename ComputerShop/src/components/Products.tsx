@@ -6,6 +6,7 @@ const Products = () => {
   return (
     <>
       <NavBar />
+
       <div className="grid grid-cols-4 mt-4 p-2 border border-solid ">
         {Computers.map((comp: computer) => (
           <div className="border border-gray-200" key={comp.id}>
