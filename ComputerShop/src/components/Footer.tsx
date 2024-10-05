@@ -1,4 +1,8 @@
-const Footer = () => {
+interface props {
+  onSubscribe: () => void;
+}
+
+const Footer = ({ onSubscribe }: props) => {
   return (
     <footer className="bg-slate-200">
       <div className="mt-4 p-3 flex justify-between border border-b-2 border-b-gray-300 ">
@@ -13,7 +17,10 @@ const Footer = () => {
             className="p-2 border-2 rounded-l-md"
             placeholder="Email address"
           />
-          <button className=" pl-2 border border-black p-2 bg-green-600">
+          <button
+            className=" pl-2 border  p-2 bg-green-600"
+            onClick={onSubscribe}
+          >
             Subscribe
           </button>
         </div>

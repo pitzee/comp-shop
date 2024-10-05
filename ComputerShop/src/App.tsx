@@ -1,8 +1,11 @@
+import { useState } from "react";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 
 const App = () => {
+  const [email, setEmail] = useState("");
+
   return (
     <>
       {/* main div */}
@@ -16,7 +19,12 @@ const App = () => {
         </div>
         {/* footer section */}
         <div>
-          <Footer />
+          <Footer
+            onSubscribe={() => {
+              setEmail("peter");
+            }}
+          />
+          <p>{email}</p>
         </div>
       </div>
     </>

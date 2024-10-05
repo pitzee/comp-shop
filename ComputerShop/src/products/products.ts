@@ -44,7 +44,7 @@ export const Computers: computer[] = [
     image: MsiThinGF63,
   },
   {
-    id: 5,
+    id: 6,
     name: "Zbook-Firefly-14-G8",
     price: 20000,
     image: ZbookFirefly14G8,
