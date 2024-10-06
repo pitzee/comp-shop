@@ -1,8 +1,10 @@
 interface props {
   onSubscribe: () => void;
+  email: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Footer = ({ onSubscribe }: props) => {
+const Footer = ({ onSubscribe, email, onChange }: props) => {
   return (
     <footer className="bg-slate-200">
       <div className="mt-4 p-3 flex justify-between border border-b-2 border-b-gray-300 ">
@@ -16,6 +18,8 @@ const Footer = ({ onSubscribe }: props) => {
             type="text"
             className="p-2 border-2 rounded-l-md"
             placeholder="Email address"
+            value={email}
+            onChange={onChange}
           />
           <button
             className=" pl-2 border  p-2 bg-green-600"
