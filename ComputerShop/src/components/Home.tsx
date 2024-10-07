@@ -3,7 +3,7 @@ import Hpvictus from "../assets/images/HP-Victus-Gaming-2024-300x300.jpg";
 const Home = () => {
   return (
     <>
-      <div className="grid grid-cols-4 mt-4 p-2 border border-solid ">
+      <div className="grid grid-cols-4 mt-20 p-2 border border-solid ">
         <div className="border border-gray-200">
           <a href="">
             <img src={Hpvictus} alt="" className="hover:translate-y-2" />

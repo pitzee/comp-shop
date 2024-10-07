@@ -6,7 +6,7 @@ const NavBar = () => {
     <>
       {/* main div */}
 
-      <div className="flex flex-col md:flex-row md:justify-between bg-slate-200 ">
+      <div className="fixed top-0 w-full flex flex-col md:flex-row md:justify-between bg-slate-200">
         {/* home icon */}
 
         <Link to="/Home" className="pl-2">
