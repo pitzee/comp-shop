@@ -5,7 +5,7 @@ const Aboutus = () => {
     <>
       <NavBar />
       <div>
-        <div className="relative bg-blue-500 h-screen m-4 rounded-xl flex flex-col">
+        <div className="relative bg-blue-500 h-screen m-4 rounded-xl flex flex-col mt-20">
           <div className="absolute bg-white  w-8/12 h-5/6 ml-10 mt-10 bottom-0  rounded-t-xl  ">
             <div className="absolute bg-gray-200 h-52 w-full rounded-t-xl">
               <h1 className="flex justify-center justify-items-center mt-2 font-extrabold text-5xl">
