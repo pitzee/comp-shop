@@ -2,6 +2,7 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
+import Carts from "./components/Carts";
 
 const App = () => {
   const [email, setEmail] = useState("");
@@ -29,6 +30,12 @@ const App = () => {
             </p>
           )}
         </div>
+
+        {/* carts  */}
+        <div>
+          <Carts />
+        </div>
+
         <div>
           <Home />
         </div>
