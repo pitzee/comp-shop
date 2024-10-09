@@ -17,6 +17,8 @@ const App = () => {
     }, 3000);
   };
 
+  const items = 3;
+
   return (
     <>
       {/* main div */}
@@ -33,7 +35,7 @@ const App = () => {
 
         {/* carts  */}
         <div>
-          <Carts />
+          <Carts items={items} />
         </div>
 
         <div>
