@@ -5,7 +5,7 @@ interface props {
 const Carts = ({ items }: props) => {
   return (
     <>
-      <div className="flex justify-end mt-11 pr-2">
+      <div className="flex justify-end  pr-2">
         <div className="flex flex-col items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"

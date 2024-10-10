@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import computer from "../assets/images/laptop.png";
+import Carts from "./Carts";
 
 const NavBar = () => {
   return (
@@ -39,9 +40,7 @@ const NavBar = () => {
             AboutUs
           </Link>
 
-          <Link to="" className="text-lg font-bold hover:text-purple-500">
-            Contact Us
-          </Link>
+          <Carts items={3} />
         </nav>
       </div>
     </>
