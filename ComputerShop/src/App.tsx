@@ -2,7 +2,6 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
-import Carts from "./components/Carts";
 
 const App = () => {
   const [email, setEmail] = useState("");
@@ -16,8 +15,6 @@ const App = () => {
       setShowAlert(false);
     }, 3000);
   };
-
-  const items = 3;
 
   return (
     <>
@@ -33,14 +30,10 @@ const App = () => {
           )}
         </div>
 
-        {/* carts  */}
-        <div>
-          <Carts items={items} />
-        </div>
-
         <div>
           <Home />
         </div>
+
         {/* footer section */}
         <div>
           <Footer

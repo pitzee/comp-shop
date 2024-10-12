@@ -40,7 +40,7 @@ const NavBar = () => {
             AboutUs
           </Link>
 
-          <Carts items={3} />
+          <Carts items={4} />
         </nav>
       </div>
     </>

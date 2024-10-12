@@ -2,7 +2,11 @@ import NavBar from "./NavBar";
 import { Computers, computer } from "../products/products";
 import { useState } from "react";
 
-const Products = () => {
+export interface props {
+  onAddToCart: () => void;
+}
+
+const Products = ({ onAddToCart }: props) => {
   const [isHovered, setIsHovered] = useState<number | null>(null);
   return (
     <>
@@ -25,7 +29,7 @@ const Products = () => {
               "
                 >
                   {/* cart */}
-                  <button>
+                  <button onClick={onAddToCart}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
