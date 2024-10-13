@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import computer from "../assets/images/laptop.png";
 import Carts from "./Carts";
+import { useReducer, useState } from "react";
+import cartReducer from "../state-management/reducers/cartReducer";
 
 const NavBar = () => {
+  const [value, dispatch] = useReducer(cartReducer, 0);
   return (
     <>
       {/* main div */}
@@ -40,7 +43,9 @@ const NavBar = () => {
             AboutUs
           </Link>
 
-          <Carts items={4} />
+          <Carts items={value} />
+
+          <button onClick={() => dispatch({ type: "INCREMENT" })}>in</button>
         </nav>
       </div>
     </>
