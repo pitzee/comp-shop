@@ -1,12 +1,10 @@
-import React from "react"
+import React, { Dispatch } from "react";
+import { Action, Item } from "../reducers/cartReducer";
 
 interface CartContextType {
-    item: items
-    onAddtocart: 
-
-
+  items: Item[];
+  dispatch: Dispatch<Action>;
 }
-
 
 const CartContext = React.createContext<CartContextType>({} as CartContextType);
 
