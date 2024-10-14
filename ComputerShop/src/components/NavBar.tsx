@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import computer from "../assets/images/laptop.png";
 import Carts from "./Carts";
-import { useReducer, useState } from "react";
-import cartReducer from "../state-management/reducers/cartReducer";
 
-const NavBar = () => {
-  const [value, dispatch] = useReducer(cartReducer, 0);
+interface Props {
+  item: number;
+  onSearch: () => void;
+}
+
+const NavBar = ({ item, onSearch }: Props) => {
   return (
     <>
       {/* main div */}
@@ -23,17 +25,15 @@ const NavBar = () => {
           {/* search  */}
           <div>
             <input type="text" className="p-2 rounded-l-md border-2" />
-            <button className="rounded-r-md bg-green-500 p-2 ">Search</button>
+            <button
+              onClick={onSearch}
+              className="rounded-r-md bg-green-500 p-2 "
+            >
+              Search
+            </button>
           </div>
           <Link to="/Home" className="text-lg font-bold  hover:text-purple-500">
             Home
-          </Link>
-
-          <Link
-            to="/Products"
-            className="text-lg font-bold hover:text-purple-500"
-          >
-            Products
           </Link>
 
           <Link
@@ -43,9 +43,7 @@ const NavBar = () => {
             AboutUs
           </Link>
 
-          <Carts items={value} />
-
-          <button onClick={() => dispatch({ type: "INCREMENT" })}>in</button>
+          <Carts items={item} />
         </nav>
       </div>
     </>
