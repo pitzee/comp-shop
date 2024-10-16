@@ -13,7 +13,8 @@ const Products = ({ onAddToCart, searchedComputers }: Props) => {
     comp.name.toLowerCase().includes(searchedComputers.toLowerCase())
   );
 
-  const computersToDisplay = searchedComputers ? filteredComputers : Computers;
+  const computersToDisplay =
+    filteredComputers.length > 0 ? filteredComputers : Computers;
   return (
     <>
       <div className="grid grid-cols-4 mt-20 p-2 border border-solid">
