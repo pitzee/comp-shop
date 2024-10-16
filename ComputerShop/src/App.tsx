@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
@@ -12,12 +12,22 @@ const App = () => {
   const [items, setItems] = useState(0);
   const [searchComputers, setSearchComputers] = useState("");
 
+  const productsRef = useRef<HTMLDivElement>(null);
+
   const hadleSubscribe = () => {
     setAlert(email);
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
     }, 3000);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchComputers(e.target.value);
+
+    if (productsRef.current) {
+      productsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -30,7 +40,7 @@ const App = () => {
             item={items}
             onSearch={() => console.log("search")}
             searchComputers={searchComputers}
-            onChange={(e) => setSearchComputers(e.target.value)}
+            onChange={handleSearchChange}
           />
           {showAlert && (
             <p className="fixed top-1 left-96 transform-translate-x-1/2 bg-green-500 text-white p-2 rounded shadow-lg">
@@ -43,12 +53,15 @@ const App = () => {
           <Home />
         </div>
 
-        <Products
-          onAddToCart={() => {
-            setItems(items + 1);
-          }}
-          searchedComputers={searchComputers}
-        />
+        {/* product section */}
+        <div ref={productsRef}>
+          <Products
+            onAddToCart={() => {
+              setItems(items + 1);
+            }}
+            searchedComputers={searchComputers}
+          />
+        </div>
 
         {/* footer section */}
         <div>
