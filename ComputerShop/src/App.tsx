@@ -10,6 +10,7 @@ const App = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   const [items, setItems] = useState(0);
+  const [searchComputers, setSearchComputers] = useState("");
 
   const hadleSubscribe = () => {
     setAlert(email);
@@ -25,7 +26,12 @@ const App = () => {
       <div>
         {/* nav bar div */}
         <div>
-          <NavBar item={items} onSearch={() => console.log("search")} />
+          <NavBar
+            item={items}
+            onSearch={() => console.log("search")}
+            searchComputers={searchComputers}
+            onChange={(e) => setSearchComputers(e.target.value)}
+          />
           {showAlert && (
             <p className="fixed top-1 left-96 transform-translate-x-1/2 bg-green-500 text-white p-2 rounded shadow-lg">
               sucessuflly suscribed with {alert}
@@ -41,6 +47,7 @@ const App = () => {
           onAddToCart={() => {
             setItems(items + 1);
           }}
+          searchedComputers={searchComputers}
         />
 
         {/* footer section */}

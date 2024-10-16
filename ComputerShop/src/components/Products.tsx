@@ -3,14 +3,21 @@ import { useState } from "react";
 
 interface Props {
   onAddToCart: () => void;
+  searchedComputers: string;
 }
 
-const Products = ({ onAddToCart }: Props) => {
+const Products = ({ onAddToCart, searchedComputers }: Props) => {
   const [isHovered, setIsHovered] = useState<number | null>(null);
+
+  const filteredComputers = Computers.filter((comp: computer) =>
+    comp.name.toLowerCase().includes(searchedComputers.toLowerCase())
+  );
+
+  const computersToDisplay = searchedComputers ? filteredComputers : Computers;
   return (
     <>
       <div className="grid grid-cols-4 mt-20 p-2 border border-solid">
-        {Computers.map((comp: computer) => (
+        {computersToDisplay.map((comp: computer) => (
           <div
             className="border border-gray-200"
             key={comp.id}

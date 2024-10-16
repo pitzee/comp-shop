@@ -5,9 +5,11 @@ import Carts from "./Carts";
 interface Props {
   item: number;
   onSearch: () => void;
+  searchComputers: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const NavBar = ({ item, onSearch }: Props) => {
+const NavBar = ({ item, onSearch, searchComputers, onChange }: Props) => {
   return (
     <>
       {/* main div */}
@@ -24,7 +26,13 @@ const NavBar = ({ item, onSearch }: Props) => {
         <nav className="flex md:space-x-3 items-center pr-2">
           {/* search  */}
           <div>
-            <input type="text" className="p-2 rounded-l-md border-2" />
+            <input
+              type="text"
+              className="p-2 rounded-l-md border-2"
+              placeholder="Search For computer"
+              value={searchComputers}
+              onChange={onChange}
+            />
             <button
               onClick={onSearch}
               className="rounded-r-md bg-green-500 p-2 "
