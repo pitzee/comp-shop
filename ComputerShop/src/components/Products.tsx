@@ -2,7 +2,7 @@ import { Computers, computer } from "../products/products";
 import { useState } from "react";
 
 interface Props {
-  onAddToCart: () => void;
+  onAddToCart: (computer: computer) => void;
   searchedComputers: string;
 }
 
@@ -34,7 +34,7 @@ const Products = ({ onAddToCart, searchedComputers }: Props) => {
               "
                 >
                   {/* cart */}
-                  <button onClick={onAddToCart}>
+                  <button onClick={() => onAddToCart(comp)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

@@ -1,8 +1,16 @@
-import { useRef, useState } from "react";
+import { useReducer, useRef, useState } from "react";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
+import cartReducer from "./state-management/reducers/cartReducer";
+
+interface itemsInTheCart {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
 
 const App = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +18,11 @@ const App = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   const [items, setItems] = useState(0);
+  const [value, dispatch] = useReducer(cartReducer, 0);
+
   const [searchComputers, setSearchComputers] = useState("");
+
+  const [itemsIncart, setItemsInCart] = useState<itemsInTheCart[]>([]);
 
   const productsRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +42,13 @@ const App = () => {
     }
   };
 
+  const handleAddToCart = (computer: itemsInTheCart) => {
+    dispatch({ type: "INCREMENT" });
+    setItemsInCart([...itemsIncart, computer]);
+  };
+
+  console.log(itemsIncart);
+
   return (
     <>
       {/* main div */}
@@ -37,10 +56,11 @@ const App = () => {
         {/* nav bar div */}
         <div>
           <NavBar
-            item={items}
+            item={value}
             onSearch={() => console.log("search")}
             searchComputers={searchComputers}
             onChange={handleSearchChange}
+            cartItems={itemsIncart}
           />
           {showAlert && (
             <p className="fixed top-1 left-96 transform-translate-x-1/2 bg-green-500 text-white p-2 rounded shadow-lg">
@@ -56,9 +76,7 @@ const App = () => {
         {/* product section */}
         <div ref={productsRef}>
           <Products
-            onAddToCart={() => {
-              setItems(items + 1);
-            }}
+            onAddToCart={handleAddToCart}
             searchedComputers={searchComputers}
           />
         </div>
