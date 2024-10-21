@@ -1,5 +1,4 @@
 import React, { Dispatch } from "react";
-import { Action, Item } from "../reducers/cartReducer";
 
 interface CartContextType {
   items: Item[];

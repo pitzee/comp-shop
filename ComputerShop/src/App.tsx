@@ -17,7 +17,6 @@ const App = () => {
   const [alert, setAlert] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  const [items, setItems] = useState(0);
   const [value, dispatch] = useReducer(cartReducer, 0);
 
   const [searchComputers, setSearchComputers] = useState("");
