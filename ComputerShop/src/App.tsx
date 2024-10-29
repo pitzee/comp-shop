@@ -49,47 +49,44 @@ const App = () => {
   console.log(itemsIncart);
 
   return (
-    <>
-      {/* main div */}
+    <main>
+      {/* nav bar div */}
       <div>
-        {/* nav bar div */}
-        <div>
-          <NavBar
-            item={value}
-            onSearch={() => console.log("search")}
-            searchComputers={searchComputers}
-            onChange={handleSearchChange}
-            cartItems={itemsIncart}
-          />
-          {showAlert && (
-            <p className="fixed top-1 left-96 transform-translate-x-1/2 bg-green-500 text-white p-2 rounded shadow-lg">
-              sucessuflly suscribed with {alert}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <Home />
-        </div>
-
-        {/* product section */}
-        <div ref={productsRef}>
-          <Products
-            onAddToCart={handleAddToCart}
-            searchedComputers={searchComputers}
-          />
-        </div>
-
-        {/* footer section */}
-        <div>
-          <Footer
-            onChange={(e) => setEmail(e.target.value)}
-            email={email}
-            onSubscribe={hadleSubscribe}
-          />
-        </div>
+        <NavBar
+          item={value}
+          onSearch={() => console.log("search")}
+          searchComputers={searchComputers}
+          onChange={handleSearchChange}
+          cartItems={itemsIncart}
+        />
+        {showAlert && (
+          <p className="fixed top-1 left-96 transform-translate-x-1/2 bg-green-500 text-white p-2 rounded shadow-lg">
+            sucessuflly suscribed with {alert}
+          </p>
+        )}
       </div>
-    </>
+
+      <div>
+        <Home />
+      </div>
+
+      {/* product section */}
+      <div ref={productsRef}>
+        <Products
+          onAddToCart={handleAddToCart}
+          searchedComputers={searchComputers}
+        />
+      </div>
+
+      {/* footer section */}
+      <div>
+        <Footer
+          onChange={(e) => setEmail(e.target.value)}
+          email={email}
+          onSubscribe={hadleSubscribe}
+        />
+      </div>
+    </main>
   );
 };
 

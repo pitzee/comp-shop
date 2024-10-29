@@ -29,7 +29,7 @@ const Products = ({ onAddToCart, searchedComputers }: Props) => {
             <div>
               {isHovered === comp.id && (
                 <div
-                  className="flex flex-row p-2 justify-between bg-neutral-300 w-full h-10
+                  className="flex flex-row p-2 justify-between bg-neutral-300 w-full h-10 transition duration-500 hover:bg-neutral-400
             
               "
                 >
