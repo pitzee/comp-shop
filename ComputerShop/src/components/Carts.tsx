@@ -12,7 +12,7 @@ interface props {
 const Carts = ({ cartItems }: props) => {
   return (
     <>
-      <div className="cart-page">
+      <div className="h-screen mt-20">
         <h2>Shopping Cart</h2>
         {cartItems.length === 0 ? (
           <p>Your cart is empty</p>

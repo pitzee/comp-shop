@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
 import cartReducer from "./state-management/reducers/cartReducer";
+import Carts from "./components/Carts";
 
 interface itemsInTheCart {
   id: number;
@@ -65,6 +66,8 @@ const App = () => {
           </p>
         )}
       </div>
+
+      <Carts cartItems={itemsIncart} />
 
       <div>
         <Home />
