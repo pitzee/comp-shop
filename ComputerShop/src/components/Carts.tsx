@@ -1,3 +1,4 @@
+import { RiCloseLargeFill } from "react-icons/ri";
 interface itemsInTheCart {
   id: number;
   name: string;
@@ -7,31 +8,56 @@ interface itemsInTheCart {
 
 interface props {
   cartItems: itemsInTheCart[];
+  cartVisibility: boolean;
+  onCartClose: () => void;
 }
 
-const Carts = ({ cartItems }: props) => {
+const Carts = ({ cartItems, cartVisibility, onCartClose }: props) => {
+  const totalprice = cartItems.reduce((acc, item) => acc + item.price, 0);
   return (
     <>
-      <div className="h-screen mt-20">
-        <h2>Shopping Cart</h2>
-        {cartItems.length === 0 ? (
-          <p>Your cart is empty</p>
-        ) : (
-          cartItems.map((item) => (
-            <div key={item.id} className="flex items-center border-b p-2">
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-10 h-10 mr-2"
-              />
-              <div className="flex-1">
-                <h4 className="text-lg font-bold">{item.name}</h4>
-                <p>${item.price.toFixed(2)}</p>
+      {cartVisibility && (
+        <div className="h-screen mt-20 ">
+          <div className="flex justify-between">
+            <p className="pl-4 text-lg">Shopping Cart</p>
+            <div className=" mr-4 text-3xl hover:translate-y-1">
+              <RiCloseLargeFill onClick={onCartClose} />
+            </div>
+          </div>
+          {cartItems.length === 0 && (
+            <p className="flex justify-center">The cart is empty</p>
+          )}
+
+          {cartItems.map((items) => (
+            <div className="flex justify-between">
+              <div
+                key={items.id}
+                className="flex  justify-center items-center space-x-1 ml-4"
+              >
+                <img
+                  src={items.image}
+                  alt=""
+                  className="w-20 h-20 object-cover "
+                />
+
+                <h1>{items.name}</h1>
+              </div>
+              <div className="flex flex-col justify-center items-center mr-4">
+                <p>${items.price}</p>
+                <p className="text-blue-500">Remove</p>
               </div>
             </div>
-          ))
-        )}
-      </div>
+          ))}
+          {cartItems.length >= 1 && (
+            <div className="flex flex-col justify-center items-center space-y-3">
+              <h1>Total: {totalprice}</h1>
+              <button className="bg-blue-600 w-52 p-2 rounded-lg">
+                Checkout
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 };

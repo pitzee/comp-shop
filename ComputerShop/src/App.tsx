@@ -26,6 +26,8 @@ const App = () => {
 
   const productsRef = useRef<HTMLDivElement>(null);
 
+  const [cartVisibility, setCartVIsibility] = useState(false);
+
   const hadleSubscribe = () => {
     setAlert(email);
     setShowAlert(true);
@@ -47,8 +49,6 @@ const App = () => {
     setItemsInCart([...itemsIncart, computer]);
   };
 
-  console.log(itemsIncart);
-
   return (
     <main>
       {/* nav bar div */}
@@ -58,7 +58,7 @@ const App = () => {
           onSearch={() => console.log("search")}
           searchComputers={searchComputers}
           onChange={handleSearchChange}
-          cartItems={itemsIncart}
+          onCartClick={() => setCartVIsibility(true)}
         />
         {showAlert && (
           <p className="fixed top-1 left-96 transform-translate-x-1/2 bg-green-500 text-white p-2 rounded shadow-lg">
@@ -67,7 +67,11 @@ const App = () => {
         )}
       </div>
 
-      <Carts cartItems={itemsIncart} />
+      <Carts
+        cartItems={itemsIncart}
+        cartVisibility={cartVisibility}
+        onCartClose={() => setCartVIsibility(false)}
+      />
 
       <div>
         <Home />
