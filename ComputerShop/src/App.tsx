@@ -67,11 +67,13 @@ const App = () => {
         )}
       </div>
 
-      <Carts
-        cartItems={itemsIncart}
-        cartVisibility={cartVisibility}
-        onCartClose={() => setCartVIsibility(false)}
-      />
+      <div>
+        <Carts
+          cartItems={itemsIncart}
+          cartVisibility={cartVisibility}
+          onCartClose={() => setCartVIsibility(false)}
+        />
+      </div>
 
       <div>
         <Home />
