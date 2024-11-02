@@ -23,7 +23,7 @@ const Footer = ({ onSubscribe, email, onChange }: props) => {
   });
 
   return (
-    <footer>
+    <footer className="z-50">
       <div className="bg-slate-200 ">
         <div className="mt-4 p-3 flex justify-between border border-b-2 border-b-gray-300 ">
           <div>
