@@ -59,7 +59,10 @@ const NavBar = ({
           </Link>
 
           <div className="flex flex-col items-center">
-            <CiShoppingCart className="text-4xl " onClick={onCartClick} />
+            <CiShoppingCart
+              className="text-4xl hover:translate-y-1 "
+              onClick={onCartClick}
+            />
             <div className="-mt-4 text-sm rounded-full bg-yellow-300 flex justify-center w-5 ml-6 ">
               <p>{item}</p>
             </div>

@@ -28,6 +28,11 @@ const App = () => {
 
   const [cartVisibility, setCartVIsibility] = useState(false);
 
+  const onItemRemoval = (id: number) => {
+    setItemsInCart(itemsIncart.filter((item) => item.id !== id));
+    dispatch({ type: "DECREMENT" });
+  };
+
   const hadleSubscribe = () => {
     setAlert(email);
     setShowAlert(true);
@@ -72,6 +77,7 @@ const App = () => {
           cartItems={itemsIncart}
           cartVisibility={cartVisibility}
           onCartClose={() => setCartVIsibility(false)}
+          onItemRemoval={onItemRemoval}
         />
       </div>
 

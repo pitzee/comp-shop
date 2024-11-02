@@ -10,10 +10,17 @@ interface props {
   cartItems: itemsInTheCart[];
   cartVisibility: boolean;
   onCartClose: () => void;
+  onItemRemoval: (id: number) => void;
 }
 
-const Carts = ({ cartItems, cartVisibility, onCartClose }: props) => {
+const Carts = ({
+  cartItems,
+  cartVisibility,
+  onCartClose,
+  onItemRemoval,
+}: props) => {
   const totalprice = cartItems.reduce((acc, item) => acc + item.price, 0);
+
   return (
     <>
       {cartVisibility && (
@@ -45,7 +52,12 @@ const Carts = ({ cartItems, cartVisibility, onCartClose }: props) => {
                 </div>
                 <div className="flex flex-col justify-center items-center mr-4">
                   <p>${items.price}</p>
-                  <p className="text-blue-500">Remove</p>
+                  <p
+                    className="text-blue-500 cursor-pointer"
+                    onClick={() => onItemRemoval(items.id)}
+                  >
+                    Remove
+                  </p>
                 </div>
               </div>
             ))}
