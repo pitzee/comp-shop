@@ -28,6 +28,21 @@ const App = () => {
 
   const [cartVisibility, setCartVIsibility] = useState(false);
 
+  const [CheckoutAlert, setCheckoutAlert] = useState(false);
+
+  const executeWithDelay = (callback: () => void, delay = 2000) => {
+    setTimeout(callback, delay);
+  };
+
+  const onCheckout = () => {
+    setItemsInCart([]);
+    dispatch({ type: "CLEAR" });
+    setCheckoutAlert(true);
+    executeWithDelay(() => {
+      setCheckoutAlert(false);
+    });
+  };
+
   const onItemRemoval = (id: number) => {
     setItemsInCart(itemsIncart.filter((item) => item.id !== id));
     dispatch({ type: "DECREMENT" });
@@ -36,9 +51,9 @@ const App = () => {
   const hadleSubscribe = () => {
     setAlert(email);
     setShowAlert(true);
-    setTimeout(() => {
+    executeWithDelay(() => {
       setShowAlert(false);
-    }, 3000);
+    });
   };
 
   const handleSearchChange = (e) => {
@@ -78,6 +93,8 @@ const App = () => {
           cartVisibility={cartVisibility}
           onCartClose={() => setCartVIsibility(false)}
           onItemRemoval={onItemRemoval}
+          onCheckout={onCheckout}
+          checkOutAlert={CheckoutAlert}
         />
       </div>
 

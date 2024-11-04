@@ -11,6 +11,8 @@ interface props {
   cartVisibility: boolean;
   onCartClose: () => void;
   onItemRemoval: (id: number) => void;
+  onCheckout: () => void;
+  checkOutAlert: boolean;
 }
 
 const Carts = ({
@@ -18,6 +20,8 @@ const Carts = ({
   cartVisibility,
   onCartClose,
   onItemRemoval,
+  onCheckout,
+  checkOutAlert,
 }: props) => {
   const totalprice = cartItems.reduce((acc, item) => acc + item.price, 0);
 
@@ -31,10 +35,19 @@ const Carts = ({
               <RiCloseLargeFill onClick={onCartClose} />
             </div>
           </div>
+
           <div className="overflow-y-auto h-4/5">
             {cartItems.length === 0 && (
               <p className="flex justify-center">The cart is empty</p>
             )}
+
+            <div className="flex justify-center">
+              {checkOutAlert && (
+                <div className="bg-green-400 w-52 h-10 flex justify-center items-center rounded-xl mt-10">
+                  <p>sucessfully checkedout</p>
+                </div>
+              )}
+            </div>
 
             {cartItems.map((items) => (
               <div className="flex justify-between">
@@ -65,7 +78,10 @@ const Carts = ({
           {cartItems.length >= 1 && (
             <div className="flex flex-col justify-center items-center space-y-3">
               <h1>Total: {totalprice}</h1>
-              <button className="bg-blue-600 w-52 p-2 rounded-lg">
+              <button
+                className="bg-blue-600 w-52 p-2 rounded-lg hover:translate-y-1"
+                onClick={onCheckout}
+              >
                 Checkout
               </button>
             </div>
