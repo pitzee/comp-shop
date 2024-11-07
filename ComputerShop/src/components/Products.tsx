@@ -28,7 +28,7 @@ const Products = ({ onAddToCart, searchedComputers }: Props) => {
             onMouseEnter={() => setIsHovered(comp.id)}
             onMouseLeave={() => setIsHovered(null)}
           >
-            <img src={comp.image} alt="" className="hover:translate-y-2" />
+            <img src={comp.image} alt="" className="hover:translate-y-1" />
             <div>
               {isHovered === comp.id && (
                 <div
