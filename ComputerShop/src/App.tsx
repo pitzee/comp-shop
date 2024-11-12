@@ -5,6 +5,8 @@ import NavBar from "./components/NavBar";
 import Products from "./components/Products";
 import cartReducer from "./state-management/reducers/cartReducer";
 import Carts from "./components/Carts";
+import { computer } from "./products/products";
+import ProductsDetail from "./components/ProductsDetail";
 
 interface itemsInTheCart {
   id: number;
@@ -29,6 +31,12 @@ const App = () => {
   const [cartVisibility, setCartVIsibility] = useState(false);
 
   const [CheckoutAlert, setCheckoutAlert] = useState(false);
+
+  const [displayProductDetail, setProductDetail] = useState(false);
+
+  const [selectedProduct, setSelectedProduct] = useState<computer | false>(
+    false
+  );
 
   const executeWithDelay = (callback: () => void, delay = 2000) => {
     setTimeout(callback, delay);
@@ -69,6 +77,10 @@ const App = () => {
     setItemsInCart([...itemsIncart, computer]);
   };
 
+  const handleDisplayProductDetail = (computer: computer) => {
+    setSelectedProduct(computer);
+  };
+
   return (
     <main>
       {/* nav bar div */}
@@ -86,7 +98,6 @@ const App = () => {
           </p>
         )}
       </div>
-
       <div>
         <Carts
           cartItems={itemsIncart}
@@ -97,19 +108,27 @@ const App = () => {
           checkOutAlert={CheckoutAlert}
         />
       </div>
-
       <div>
         <Home />
       </div>
-
       {/* product section */}
       <div ref={productsRef}>
         <Products
           onAddToCart={handleAddToCart}
           searchedComputers={searchComputers}
+          onDisplayProductDetail={handleDisplayProductDetail}
+          productDetail={displayProductDetail}
         />
       </div>
-
+      {/* Conditionally render product detail */}{" "}
+      {selectedProduct && (
+        <ProductsDetail
+          onClose={() => setSelectedProduct(false)}
+          pic={selectedProduct.image}
+          name={selectedProduct.name}
+          price={selectedProduct.price}
+        />
+      )}
       {/* footer section */}
       <div>
         <Footer

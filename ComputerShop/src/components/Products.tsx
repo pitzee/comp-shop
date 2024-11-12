@@ -3,13 +3,21 @@ import { useState } from "react";
 import { CiShoppingCart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import { FcLike } from "react-icons/fc";
+import ProductsDetail from "./ProductsDetail";
 
 interface Props {
   onAddToCart: (computer: computer) => void;
   searchedComputers: string;
+  onDisplayProductDetail: (computer: computer) => void;
+  productDetail: boolean;
 }
 
-const Products = ({ onAddToCart, searchedComputers }: Props) => {
+const Products = ({
+  onAddToCart,
+  searchedComputers,
+  onDisplayProductDetail,
+  productDetail,
+}: Props) => {
   const [isHovered, setIsHovered] = useState<number | null>(null);
 
   const filteredComputers = Computers.filter((comp: computer) =>
@@ -41,9 +49,12 @@ const Products = ({ onAddToCart, searchedComputers }: Props) => {
                     <CiShoppingCart className="size-6 hover:bg-yellow-300 hover:rounded-full overflow-visible " />
                   </button>
 
-                  {/* view */}
+                  {/* detail */}
                   <button>
-                    <IoEyeOutline className="size-6 hover:bg-yellow-300 hover:rounded-full " />
+                    <IoEyeOutline
+                      className="size-6 hover:bg-yellow-300 hover:rounded-full "
+                      onClick={() => onDisplayProductDetail(comp)}
+                    />
                   </button>
 
                   {/* heart */}
