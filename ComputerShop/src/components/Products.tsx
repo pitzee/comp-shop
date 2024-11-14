@@ -28,7 +28,7 @@ const Products = ({
     filteredComputers.length > 0 ? filteredComputers : Computers;
   return (
     <>
-      <div className="grid grid-cols-4 mt-20 p-2 border border-solid">
+      <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 mt-20 p-2 border border-solid">
         {computersToDisplay.map((comp: computer) => (
           <div
             className="border border-gray-200"

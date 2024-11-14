@@ -21,7 +21,7 @@ const NavBar = ({
     <>
       {/* main div */}
 
-      <div className="fixed top-0 w-full flex flex-col md:flex-row md:justify-between bg-slate-200 z-50">
+      <div className="fixed hidden top-0 w-full md:flex justify-between  bg-slate-200 z-50">
         {/* home icon */}
 
         <Link to="/Home" className="pl-2">
