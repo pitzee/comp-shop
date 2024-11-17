@@ -24,8 +24,8 @@ const Footer = ({ onSubscribe, email, onChange }: props) => {
 
   return (
     <footer className="z-50">
-      <div className="bg-slate-200 ">
-        <div className="mt-4 p-3 flex justify-between border border-b-2 border-b-gray-300 ">
+      <div className="bg-slate-200">
+        <div className="flex flex-col space-y-3 md:flex-row mt-4 p-3 justify-between border border-b-2 border-b-gray-300">
           <div>
             <h1 className="font-bold text-xl">Newsletter</h1>
             <p>subscribe to get information about products and coupons</p>
@@ -53,7 +53,7 @@ const Footer = ({ onSubscribe, email, onChange }: props) => {
         </div>
         <div className=""></div>
       </div>
-      <div className="bg-cyan-950 w-full h-80 mb-1">
+      <div className="bg-cyan-950 w-full md:h-80 mb-1 h-screen">
         <div className="text-white  pl-4  pr-4 pt-2 flex  flex-col md:flex-row  justify-between ">
           <div className="flex flex-col">
             <h1 className="font-bold text-lg">Products</h1>
