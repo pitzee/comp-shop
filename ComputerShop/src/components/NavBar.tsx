@@ -21,7 +21,7 @@ const NavBar = ({
     <>
       {/* main div */}
 
-      <div className="fixed hidden top-0 w-full md:flex justify-between  bg-slate-200 z-50">
+      <div className="fixed flex-col space-y-2 md:flex-row  top-0 w-full md:flex md:justify-between  bg-slate-200 z-50">
         {/* home icon */}
 
         <Link to="/Home" className="pl-2">
@@ -30,7 +30,7 @@ const NavBar = ({
 
         {/* menu items */}
 
-        <nav className="flex md:space-x-3 items-center pr-2">
+        <nav className="flex flex-col md:space-x-3 items-center pr-2 md:flex-row">
           {/* search  */}
           <div>
             <input

@@ -16,7 +16,7 @@ const ProductsDetail = ({ pic, name, price, onClose }: props) => {
         </div>
 
         <div>
-          <img src={pic} alt="" className="h-96 w-96" />
+          <img src={pic} alt="" className="h-44 w-44 md:h-96 md:w-96" />
           <p>{name}</p>
           <p>{price} birr</p>
         </div>

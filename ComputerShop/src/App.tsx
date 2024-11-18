@@ -7,7 +7,6 @@ import cartReducer from "./state-management/reducers/cartReducer";
 import Carts from "./components/Carts";
 import { computer } from "./products/products";
 import ProductsDetail from "./components/ProductsDetail";
-import MobNavbar from "./components/MobNavbar";
 
 interface itemsInTheCart {
   id: number;
@@ -34,9 +33,6 @@ const App = () => {
   const [CheckoutAlert, setCheckoutAlert] = useState(false);
 
   const [displayProductDetail, setProductDetail] = useState(false);
-
-  const [openmenu, setOPenMenu] = useState(true);
-  const [closemenu, setCloseMenu] = useState(false);
 
   const [selectedProduct, setSelectedProduct] = useState<computer | false>(
     false
@@ -102,19 +98,6 @@ const App = () => {
           </p>
         )}
       </div>
-      {/* mobile nav bar */}
-      <MobNavbar
-        onOpenMenu={() => {
-          setOPenMenu(false);
-          setCloseMenu(true);
-        }}
-        onCloseMenu={() => {
-          setCloseMenu(false);
-          setOPenMenu(true);
-        }}
-        openmenu={openmenu}
-        closemenu={closemenu}
-      />
       <div>
         <Carts
           cartItems={itemsIncart}
