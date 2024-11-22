@@ -3,20 +3,17 @@ import { useState } from "react";
 import { CiShoppingCart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import { FcLike } from "react-icons/fc";
-import ProductsDetail from "./ProductsDetail";
 
 interface Props {
   onAddToCart: (computer: computer) => void;
   searchedComputers: string;
   onDisplayProductDetail: (computer: computer) => void;
-  productDetail: boolean;
 }
 
 const Products = ({
   onAddToCart,
   searchedComputers,
   onDisplayProductDetail,
-  productDetail,
 }: Props) => {
   const [isHovered, setIsHovered] = useState<number | null>(null);
 

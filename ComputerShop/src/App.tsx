@@ -32,8 +32,6 @@ const App = () => {
 
   const [CheckoutAlert, setCheckoutAlert] = useState(false);
 
-  const [displayProductDetail, setProductDetail] = useState(false);
-
   const [selectedProduct, setSelectedProduct] = useState<computer | false>(
     false
   );
@@ -64,7 +62,7 @@ const App = () => {
     });
   };
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchComputers(e.target.value);
 
     if (productsRef.current) {
@@ -117,7 +115,6 @@ const App = () => {
           onAddToCart={handleAddToCart}
           searchedComputers={searchComputers}
           onDisplayProductDetail={handleDisplayProductDetail}
-          productDetail={displayProductDetail}
         />
       </div>
       {/* Conditionally render product detail */}{" "}

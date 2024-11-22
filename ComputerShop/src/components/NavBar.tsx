@@ -51,13 +51,6 @@ const NavBar = ({
             Home
           </Link>
 
-          <Link
-            to="/Aboutus"
-            className="text-lg font-bold hover:text-purple-500"
-          >
-            AboutUs
-          </Link>
-
           <div className="flex flex-col items-center">
             <CiShoppingCart
               className="text-4xl hover:translate-y-1 "
