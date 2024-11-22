@@ -29,7 +29,7 @@ const Carts = ({
     <>
       {cartVisibility && (
         <div className="h-screen fixed w-full bg-green-400 bg-opacity-60 top-0 z-50 container">
-          <div className="w-1/2 bg-white h-screen mx-auto mt-1 mb-2 rounded-xl">
+          <div className="w-full md:w-1/2 bg-white h-screen mx-auto mt-1 mb-2 rounded-xl">
             <div className="flex justify-between pt-2">
               <p className="pl-4 text-lg">Shopping Cart</p>
               <div className=" mr-4 text-3xl hover:translate-y-1">
