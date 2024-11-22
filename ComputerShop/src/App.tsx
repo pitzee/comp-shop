@@ -91,7 +91,7 @@ const App = () => {
           onCartClick={() => setCartVIsibility(true)}
         />
         {showAlert && (
-          <p className="fixed top-1 left-96 transform-translate-x-1/2 bg-green-500 text-white p-2 rounded shadow-lg z-50">
+          <p className="fixed top-1 md:left-96 transform-translate-x-1/2 bg-green-500 text-white p-2 rounded shadow-lg z-50">
             sucessuflly suscribed with {alert}
           </p>
         )}
